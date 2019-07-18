@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+<body>
+    <div id='app'>
+        {{msg}}
+
+        <div :class="{active:isActive}" @click="aa">77777777</div>
+        <div :class="[isActive1,isActive2,isActive?isActive3:'']" @click="aa">888888</div>
+        <div :class="['isActive1',{aa:isActive}]" @click="aa">99999</div>
+        <div style="width:200px" @click="aa">99999</div>
+
+        <hr>
+        <div :style="obj" @click="qq">99999</div>
+        <hr>
+        <div :style="[obj1,obj2]" @click="qq6">66666</div>
+        <div :style="[obj]" @click="qq">66666</div>
+
+
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue',
+                isActive:true,
+                isActive1:'a1',
+                isActive2:"a2",
+                isActive3:"a3",
+
+                obj1:{
+                    color:'red'
+                },
+                obj2:{
+                    background:"pink"
+                },
+                obj:{}
+            },
+            methods:{
+                aa(){
+                    this.isActive=!this.isActive
+                },
+                qq(){
+                    this.obj={...this.obj1,...this.obj2};
+                   
+                }
+            }
+        });
+    </script>
+</body>
+</html>

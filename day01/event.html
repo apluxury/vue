@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        username:<input type="text" name="" id="" v-model="user"> </br>
+        password<input type="text" name="" id="" v-model="pwd">
+
+        <input type="button" value="提交" @click="btn">
+
+        <hr>
+
+        =================</br>
+        用户名是：{{user}} </br>
+        密码是：{{pwd}}
+
+        <p @click="aa">这是一个P标签</p>
+        <!-- <p @mouseover="bb">这是一个P222222标签</p> -->
+
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue',
+                user: "请输入用户名22222",
+                pwd: "请输入密码"
+            },
+            methods: {
+                aa() {
+                    alert("111")
+                },
+                bb() {
+                    alert("2222")
+                },
+                btn(){
+                    console.log(this.user,this.pwd)
+                    this.aa()
+                    
+                }
+            }
+
+
+
+        });
+    </script>
+</body>
+
+</html>

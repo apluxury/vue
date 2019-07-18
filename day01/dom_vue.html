@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+
+
+
+    <div id='app'>
+
+            =======:<input type="text" @keyup.enter="bb">
+        {{msg}}
+
+        <div>
+            aaaaaa
+            <p @click="bb">bbbb</p>
+        </div>
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            },
+            methods: {
+                aa(a,b) {
+                    console.log(a,b,"这是父元素的")
+
+                },
+                bb(e){
+                    console.log(e,"这是子元素的")
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
