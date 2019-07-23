@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='./js/vue.js'></script>
+</head>
+
+<body>
+    <!-- <div id='app'>
+        <base-list>
+            <slot>我占用了</slot>
+        </base-list>
+    </div>
+    <script type='text/javascript'>
+        Vue.component('base-list', {
+
+            template: `<div>
+                <slot>这是一个插槽
+                </slot>
+            </div>`
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            }
+        }); -->
+
+
+    <div id='app'>
+        <base-list>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+        </base-list>
+    </div>
+    <script type='text/javascript'>
+        Vue.component('base-list', {
+
+            template: `<div>
+                <slot>这是一个插槽
+                     </slot>
+                </div>`
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            }
+        });
+    </script>
+</body>
+
+</html>
