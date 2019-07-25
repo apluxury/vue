@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='./lib/vue_2.5.22.js'></script>
+    <script src="./lib/vue-router_3.0.2.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <router-link to="/users">User</router-link>
+        <router-link to="/register">Register</router-link>
+        <!-- 路由占位符 -->
+        <router-view></router-view>
+    </div>
+    <script type='text/javascript'>
+        const Tap1 = {
+            template: '<h3>这是 Tap1 组件</h3>'
+        }
+        const Tap2 = {
+            template: '<h3>这是 Tap2 组件</h3>'
+        }
+        const User = {
+            template: '<h1>这是 user 组件</h1>'
+        }
+        const Register = {
+            template: `<div>
+                        <h1>这是 Register 组件</h1>
+                        <hr/>
+                        <router-link to="/register/tap1">tap1 组件</router-link>
+                        <router-link to="/register/tap2">tap2 组件</router-link>
+                        <router-view></router-view>
+                    </div>`
+        }
+        const router = new VueRouter({
+            routes: [
+                { path: '/', redirect: '/users' },
+                { path: '/users', component: User },
+                {
+                    path: '/register', component: Register, children: [
+                        { path: '/register/tap1', component: Tap1 },
+                        { path: '/register/tap2', component: Tap2 },
+                    ]
+                }
+            ]
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue',
+
+            },
+            router
+        });
+    </script>
+</body>
+
+</html>
